@@ -1,0 +1,97 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define TAM 200
+
+nome do char [TAM] [TAM];
+int cpf [TAM], idade [TAM];
+int quant, i, j, chave;
+   
+void cadastro_usuario () {
+    printf ("\ nCadastro de usuarios \ n");
+    printf ("Digite uma quantidade de usuários que deseja registrar:");
+    scanf ("% d", & quant-);
+    para (i = 0; i <= quant-1; i ++) {
+        printf ("Digite o seu nome: \ n");
+        scanf ("% s", & nome [i]);
+        printf ("Digite seu cpf: \ n");
+        scanf ("% d", & cpf [i]);
+        printf ("Digite sua idade: \ n");
+        scanf ("% d", & idade [i]);
+        printf ("\ n *** Cadastro realizado com sucesso *** \ n");
+    }
+};
+void usuario_adulto () {
+    para (i = 0; i <= quant-1; i ++) {
+        if (idade [i]> = 18) {
+            printf ("Acesso liberado para o usuário:% s \ n", nome [i]);
+        }
+        outro{
+            printf ("Acesso bloqueado para o usuário:% s \ n", nome [i]);
+        }  
+    }
+};
+void exibida () {
+    para (i = 0; i <= quant-1; i ++) {
+        printf ("Nome do usuário:% s \ n", nome [i]);
+        printf ("CPF do usuário:% d \ n", cpf [i]);
+        printf ("Idade do usuário:% d \ n", idade [i]);
+    }
+};
+ordenação nula () {
+    int j;
+    int aux [TAM];
+        para (i = 0; i <quant; i ++) {
+            para (j = i + 1; j <quant; j ++) {
+                if (strcmp (nome [i], nome [j])> 0) {
+                    strcpy (aux, nome [i]);
+                    strcpy (nome [i], nome [j]);
+                    strcpy (nome [j], aux);
+                }
+            }
+        }
+    para (i = 0; i <= quant-1; i ++) {
+        printf ("Ordenado com sucesso!% d:% s \ n", i, nome [i]);
+    }
+};
+void BucaSequencial () {
+    printf ("\ nDigite o usuário que deseja pesquisar, pelo CPF: \ n");
+    scanf ("% d", & chave);
+    para (i = 0; i <= quant; i ++) {
+        if (chave == cpf [i]) {
+            printf ("usuário:% s \ n", nome [i]);
+            pausa;
+        }
+            printf ("pesquisa invalida, tente novamente! \ n");
+    }        
+};
+void buscaBinaria () {
+    int inicio, fim, meio;
+    printf ("\ nDigite o usuário que deseja pesquisar, pelo cpf: \ n");
+    scanf ("% d", & chave);
+    para (i = 0; i <quant; i ++) {
+        meio = (inicio + fim) / 2;
+        if (nome [meio] == chave) {
+            return meio;
+        }
+        if (nome [meio]) {
+            inicio = meio + 1;
+        }
+        outro{
+            fim = meio-1;
+        }
+    }
+    para (i = 0; i <quant; i ++) {
+        printf ("usuário:% s \ n", nome [i]);
+    }  
+};
+int main ()
+{
+    cadastro_usuario ();
+    usuario_adulto ();
+    exibições ();
+    ordenação ();
+    BucaSequencial ();
+    buscaBinaria ();
+    retornar 0;
+}
